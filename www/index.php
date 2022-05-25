@@ -11,14 +11,22 @@
 </head>
 <body>
     <div class="container">
-    <?php echo "<h1>Hi! I'm happy</h1>"; ?>
+    <?php 
+    echo "<h1>Hi! I'm happy</h1>";
+    $pingresult = shell_exec("ping db -c 1");
+    
+    echo "<br />";
+    echo "<br />";
+    echo $pingresult;
+    echo "<br />";
+    echo "<br />";    
+ 
+    ?>
 
     <?php
 
     // Connexion et sélection de la base
-    $conn = mysqli_connect('db', 'user', 'test', "myDb");
-
-
+    $conn =  mysqli_connect('db', 'user', 'test', "myDb");
     $query = 'SELECT * From Person';
     $result = mysqli_query($conn, $query);
 
